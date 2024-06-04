@@ -50,7 +50,7 @@ Henceforth, a viable solution to generate as much rectangles as possible would b
 #include <stdio.h>
 ```
 
-* Furthermore, we define the `const int num_steps` *(the quantity of rectangles, the area of which shall be integrated)* and then the `double step` *(the $dx$)*
+* Furthermore, we define the `const int num_steps` *(the quantity of rectangles, the area of which shall be integrated)* and then the `double step` *(the dx or the width of each rectangle)*
 
 * Now entering the main scope of our program we initialize the multi-threading aspect using the `#pragma omp parallel` where each so-called thread runs simeaultaneously from one another and calculates the partial area `local_area`.
 
