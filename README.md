@@ -9,6 +9,16 @@ author: [Andrew Gyakobo](https://github.com/Gyakobo)
 
 This project was made to showcase a sample example of muli-threading in the C programming language. To be more exact, in this project we'll be trying to approximate the value $\pi$. 
 
+## Introduction
+
+Multi-threading is a programming concept where multiple threads are spawned by a process to execute tasks concurrently. Each thread runs independently but shares the process's resources like memory and file handles. Multi-threading can lead to more efficient use of resources, faster execution of tasks, and improved performance in multi-core systems.
+
+### Key Concepts
+1. Thread: A lightweight process or the smallest unit of execution within a process.
+1. Concurrency vs. Parallelism: Concurrency means multiple threads make progress at the same time, while parallelism means multiple threads run simultaneously on different cores.
+1. Synchronization: Mechanism to control the access of multiple threads to shared resources.
+Thread Safety: Ensuring that shared data is accessed by only one thread at a time.
+
 ## Methodology
 
 We'll be utilizing the function $\dfrac{4}{1 + x^2}$, the integral of which is a near approximation of $\pi$. Thus we'll be calculating the following formula:
