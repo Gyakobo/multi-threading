@@ -27,9 +27,7 @@ Here is a more specific example of the aforementioned computation, this isn't a 
 
 <img src="./assets/function_example.jpeg">
 
-As you can witness, the integration is just a summation of all the rectangles entangled under the function. 
-
-This is roughly what is being calculated:
+As you can witness, the integration is just a summation of all the rectangles entangled under the function. This is roughly what is being calculated:
 
 $f(x_{i})$ - the function $4/(1 + x^2)$
 
@@ -39,7 +37,9 @@ $$
 \displaystyle\sum\limits_{i=0}^{\infty} f(x_{i}) dx \approx \pi
 $$
 
-From here we can distinctly see that the smaller the $dx$, the more rectangular areas we have have to compute and add up.
+From here we can distinctly see that the smaller the $dx$, the more rectangular areas we have have to compute and add up. This however proves to be a challenge cause the more the rectangles the more the computation, and we know that it is essential to have an enormous amount of said shapes.
+
+Henceforth, a viable solution to generate as much rectangles as possible would be to use parallelism and multi-core processing with the C library `<omp.h>`.
  
 ## License
 MIT
