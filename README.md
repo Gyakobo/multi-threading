@@ -55,20 +55,32 @@ Henceforth, a viable solution to generate as much rectangles as possible would b
 * Now entering the main scope of our program we initialize the multi-threading aspect using the `#pragma omp parallel` where each so-called thread runs simeaultaneously from one another and calculates the partial area `local_area`.
 
 ```c
-    #pragma omp parallel
-    {
-        int id =    omp_get_thread_num();
-        int n =     omp_get_num_threads();
-        int i;
-        double local_area = 0;
+#pragma omp parallel
+{
+    int id =    omp_get_thread_num();
+    int n =     omp_get_num_threads();
+    int i;
+    double local_area = 0;
 
-        for (i = id; i<num_steps; i+=n) {
-            double x = (i + 0.5) * step;
-            double y = 4 / (1 + x*x);
-            local_area += step * y;
-        }
-        ...
+    for (i = id; i<num_steps; i+=n) {
+        double x = (i + 0.5) * step;
+        double y = 4 / (1 + x*x);
+        local_area += step * y;
+    }
+    ...
 ```
+
+* After calculating the `local_area` all the threads are simeaultaneously halted in one specific scope where they all perform one command; in our case sum up all the partial areas into one `double area` given us our final result.
+
+```c
+#pragma omp critical
+{
+    area += local_area;
+}
+```
+
+>[!IMPORTANT]
+>It is important to acquiesce that before running this program you need to fathom and fully understand the limits of your PC set before making such calculations.
 
 ## License
 MIT
