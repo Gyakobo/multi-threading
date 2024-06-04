@@ -18,7 +18,7 @@ $$
 $$
 
 >[!NOTE]
->The graph below showcases the calculated function 
+>The graph below showcases the integrated function. 
 <img src="./assets/function.png">
 
 There is of course a minor issue with this calculation. In particular, as the $dx$ component gets ever smaller, the integration gets more precise. Hence it becomes a priority to make the $dx$ as small as possible. This however certainly backfires as with the decreasing $dx$ the integration becomes more complex as there are more facets in the function to compute. 
@@ -34,12 +34,41 @@ $f(x_{i})$ - the function $4/(1 + x^2)$
 $dx$ - is the select width of the individual squares that we have to compute.
 
 $$
-\displaystyle\sum\limits_{i=0}^{\infty} f(x_{i}) dx \approx \pi
+\displaystyle\sum\limits_{i=0}^{\infty} f(x_{i}) \delta x \approx \pi
 $$
 
 From here we can distinctly see that the smaller the $dx$, the more rectangular areas we have have to compute and add up. This however proves to be a challenge cause the more the rectangles the more the computation, and we know that it is essential to have an enormous amount of said shapes.
 
 Henceforth, a viable solution to generate as much rectangles as possible would be to use parallelism and multi-core processing with the C library `<omp.h>`.
- 
+
+## Code snippets
+
+* From the getgo the code greets us with two include statements:
+
+```c 
+#include <omp.h>
+#include <stdio.h>
+```
+
+* Furthermore, we define the `const int num_steps` *(the quantity of rectangles, the area of which shall be integrated)* and then the `double step` *(the $dx$)*
+
+* Now entering the main scope of our program we initialize the multi-threading aspect using the `#pragma omp parallel` where each so-called thread runs simeaultaneously from one another and calculates the partial area `local_area`.
+
+```c
+    #pragma omp parallel
+    {
+        int id =    omp_get_thread_num();
+        int n =     omp_get_num_threads();
+        int i;
+        double local_area = 0;
+
+        for (i = id; i<num_steps; i+=n) {
+            double x = (i + 0.5) * step;
+            double y = 4 / (1 + x*x);
+            local_area += step * y;
+        }
+        ...
+```
+
 ## License
 MIT
