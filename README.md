@@ -27,8 +27,19 @@ Here is a more specific example of the aforementioned computation, this isn't a 
 
 <img src="./assets/function_example.jpeg">
 
-As
+As you can witness, the integration is just a summation of all the rectangles entangled under the function. 
 
+This is roughly what is being calculated:
 
+$f(x_{i})$ - the function $4/(1 + x^2)$
+
+$dx$ - is the select width of the individual squares that we have to compute.
+
+$$
+\displaystyle\sum\limits_{i=0}^{\infty} f(x_{i}) dx \approx \pi
+$$
+
+From here we can distinctly see that the smaller the $dx$, the more rectangular areas we have have to compute and add up.
+ 
 ## License
 MIT
