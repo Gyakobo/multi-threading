@@ -82,5 +82,40 @@ Henceforth, a viable solution to generate as much rectangles as possible would b
 >[!IMPORTANT]
 >It is important to acquiesce that before running this program you need to fathom and fully understand the limits of your PC set before making such calculations.
 
+## The OpenMP - open Multi-processing library 
+
+* Just as a side note the **OpenMP** library comprises of the following parts
+
+### Compiler Directives
+
+```c
+#pragma omp parallel
+#pragma omp critical
+#pragma omp barrier
+#pragma omp master
+```
+
+### Functions
+
+```c
+include <omp.h>
+int omp_get_thread_num()
+int omp_get_num_threads()
+```
+
+### Compiling and Linking
+
+```bash
+gcc -fopenmp # C compiler
+g++ -fopenmp # C compiler
+```
+
+### Environmental variables
+
+```bash
+export OMP_NUM_THREADS=8
+export OMP_NESTED=TRUE
+```
+
 ## License
 MIT
