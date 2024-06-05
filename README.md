@@ -44,7 +44,7 @@ $f(x_{i})$ - the function $4/(1 + x^2)$
 $dx$ - is the select width of the individual squares that we have to compute.
 
 $$
-\displaystyle\sum\limits_{i=0}^{\infty} f(x_{i}) \delta x \approx \pi
+\displaystyle\sum\limits_{i=0}^{\infty} f(x_{i}) \Delta x \approx \pi
 $$
 
 From here we can distinctly see that the smaller the $dx$, the more rectangular areas we have have to compute and add up. This however proves to be a challenge cause the more the rectangles the more the computation, and we know that it is essential to have an enormous amount of said shapes.
