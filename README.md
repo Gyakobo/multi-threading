@@ -117,7 +117,7 @@ int omp_get_num_threads()
 
 ```bash
 gcc -fopenmp # C compiler
-g++ -fopenmp # C compiler
+g++ -fopenmp # C++ compiler
 ```
 
 ### Environmental variables
