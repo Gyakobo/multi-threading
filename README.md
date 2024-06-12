@@ -108,7 +108,7 @@ Just as a side note the **OpenMP** library comprises of the following parts. Als
 ### Functions
 
 ```c
-include <omp.h>
+#include <omp.h>
 int omp_get_thread_num()
 int omp_get_num_threads()
 ```
