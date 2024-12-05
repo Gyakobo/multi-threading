@@ -41,7 +41,7 @@ As you can witness, the integration is just a summation of all the rectangles en
 
 $f(x_{i})$ - the function $4/(1 + x^2)$
 
-$dx$ - is the select width of the individual squares that we have to compute.
+$\Delta x$ - is the select width of the individual squares that we have to compute.
 
 $$
 \displaystyle\sum\limits_{i=0}^{\infty} f(x_{i}) \Delta x \approx \pi
