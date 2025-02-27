@@ -24,7 +24,7 @@ Thread Safety: Ensuring that shared data is accessed by only one thread at a tim
 We'll be utilizing the function $\dfrac{4}{1 + x^2}$, the integral of which is a near approximation of $\pi$. Thus we'll be calculating the following formula:
 
 $$
-\int \dfrac{4}{1 + x^2} \, dx \approx \pi
+\int \dfrac{4}{1 + x^2} dx \approx \pi
 $$
 
 >[!NOTE]
